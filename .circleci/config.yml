@@ -43,4 +43,8 @@ jobs:
       - run:
           name: Deploy Backend App
           command: |
-            npm run backend:deploy
+            cd ./Backend
+            eb init $EB_APP_NAME --region $AWS_DEFAULT_REGION --platform node.js
+            eb use $EB_ENV_NAME
+            eb deploy
+
