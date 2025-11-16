@@ -37,13 +37,35 @@ jobs:
           command: |
             npm run backend:build
       - run:
+          name: Front-End Tests
+          command: |
+            npm run frontend:test
+      - run:
           name: Deploy Back-End App
           command: |
             cd ./Backend
             eb init $EB_APP_NAME --region $AWS_DEFAULT_REGION --platform node.js
             eb use $EB_ENV_NAME
+            eb setenv JWT_SECRET=$JWT_SECRET
+            eb setenv PEPPER=$PEPPER
+            eb setenv POSTGRES_DB=$POSTGRES_DB
+            eb setenv POSTGRES_HOST=$POSTGRES_HOST
+            eb setenv POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+            eb setenv POSTGRES_PORT=$POSTGRES_PORT
+            eb setenv POSTGRES_USER=$POSTGRES_USER
+            eb setenv SALT=$SALT
             eb deploy
       - run:
           name: Deploy Front-End App
           command: |
             npm run frontend:deploy
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master

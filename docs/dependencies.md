@@ -8,38 +8,38 @@ This document lists all dependencies required for the Udacity Fullstack Store ap
 
 ### Runtime Dependencies
 
-| Package | Version | Purpose |
-|---------|---------|---------|
-| `express` | ^4.17.1 | Web application framework |
-| `pg` | ^8.16.3 | PostgreSQL client for Node.js |
-| `bcrypt` | ^5.1.1 | Password hashing library |
-| `jsonwebtoken` | ^9.0.2 | JWT token generation and verification |
-| `dotenv` | ^17.2.3 | Environment variable management |
-| `cors` | ^2.8.5 | Cross-Origin Resource Sharing middleware |
-| `body-parser` | ^1.19.0 | Request body parsing middleware |
-| `db-migrate` | ^0.11.14 | Database migration tool |
-| `db-migrate-pg` | ^1.5.2 | PostgreSQL driver for db-migrate |
-| `typescript` | ^5.9.3 | TypeScript compiler |
+| Package         | Version  | Purpose                                  |
+| --------------- | -------- | ---------------------------------------- |
+| `express`       | ^4.17.1  | Web application framework                |
+| `pg`            | ^8.16.3  | PostgreSQL client for Node.js            |
+| `bcrypt`        | ^5.1.1   | Password hashing library                 |
+| `jsonwebtoken`  | ^9.0.2   | JWT token generation and verification    |
+| `dotenv`        | ^17.2.3  | Environment variable management          |
+| `cors`          | ^2.8.5   | Cross-Origin Resource Sharing middleware |
+| `body-parser`   | ^1.19.0  | Request body parsing middleware          |
+| `db-migrate`    | ^0.11.14 | Database migration tool                  |
+| `db-migrate-pg` | ^1.5.2   | PostgreSQL driver for db-migrate         |
+| `typescript`    | ^5.9.3   | TypeScript compiler                      |
 
 ### Development Dependencies
 
-| Package | Version | Purpose |
-|---------|---------|---------|
-| `@types/express` | ^4.17.9 | TypeScript definitions for Express |
-| `@types/pg` | ^7.14.7 | TypeScript definitions for pg |
-| `@types/bcrypt` | ^5.0.0 | TypeScript definitions for bcrypt |
-| `@types/jsonwebtoken` | ^9.0.10 | TypeScript definitions for jsonwebtoken |
-| `@types/cors` | ^2.8.19 | TypeScript definitions for cors |
-| `@types/dotenv` | ^8.2.3 | TypeScript definitions for dotenv |
-| `@types/jasmine` | ^3.6.3 | TypeScript definitions for Jasmine |
-| `@types/supertest` | ^6.0.3 | TypeScript definitions for supertest |
-| `jasmine` | ^3.6.4 | Behavior-driven testing framework |
-| `jasmine-spec-reporter` | ^6.0.0 | Spec reporter for Jasmine |
-| `jasmine-ts` | ^0.3.0 | TypeScript support for Jasmine |
-| `supertest` | ^7.1.4 | HTTP assertion library for testing |
-| `ts-node` | ^10.9.2 | TypeScript execution for Node.js |
-| `tsc-watch` | ^4.2.9 | TypeScript compiler with watch mode |
-| `gitignore` | ^0.7.0 | .gitignore file generator |
+| Package                 | Version | Purpose                                 |
+| ----------------------- | ------- | --------------------------------------- |
+| `@types/express`        | ^4.17.9 | TypeScript definitions for Express      |
+| `@types/pg`             | ^7.14.7 | TypeScript definitions for pg           |
+| `@types/bcrypt`         | ^5.0.0  | TypeScript definitions for bcrypt       |
+| `@types/jsonwebtoken`   | ^9.0.10 | TypeScript definitions for jsonwebtoken |
+| `@types/cors`           | ^2.8.19 | TypeScript definitions for cors         |
+| `@types/dotenv`         | ^8.2.3  | TypeScript definitions for dotenv       |
+| `@types/jasmine`        | ^3.6.3  | TypeScript definitions for Jasmine      |
+| `@types/supertest`      | ^6.0.3  | TypeScript definitions for supertest    |
+| `jasmine`               | ^3.6.4  | Behavior-driven testing framework       |
+| `jasmine-spec-reporter` | ^6.0.0  | Spec reporter for Jasmine               |
+| `jasmine-ts`            | ^0.3.0  | TypeScript support for Jasmine          |
+| `supertest`             | ^7.1.4  | HTTP assertion library for testing      |
+| `ts-node`               | ^10.9.2 | TypeScript execution for Node.js        |
+| `tsc-watch`             | ^4.2.9  | TypeScript compiler with watch mode     |
+| `gitignore`             | ^0.7.0  | .gitignore file generator               |
 
 ---
 
@@ -47,35 +47,35 @@ This document lists all dependencies required for the Udacity Fullstack Store ap
 
 ### Runtime Dependencies
 
-| Package | Version | Purpose |
-|---------|---------|---------|
-| `@angular/animations` | ^20.3.8 | Angular animations library |
-| `@angular/common` | ^20.3.8 | Common Angular utilities |
-| `@angular/compiler` | ^20.3.8 | Angular template compiler |
-| `@angular/core` | ^20.3.8 | Angular core framework |
-| `@angular/forms` | ^20.3.8 | Form handling in Angular |
-| `@angular/platform-browser` | ^20.3.8 | Browser platform for Angular |
-| `@angular/platform-browser-dynamic` | ^20.3.8 | Dynamic platform for Angular |
-| `@angular/router` | ^20.3.8 | Angular routing library |
-| `rxjs` | ~7.8.0 | Reactive extensions for JavaScript |
-| `tslib` | ^2.3.0 | TypeScript runtime library |
-| `zone.js` | ~0.15.0 | Execution context for async operations |
+| Package                             | Version | Purpose                                |
+| ----------------------------------- | ------- | -------------------------------------- |
+| `@angular/animations`               | ^20.3.8 | Angular animations library             |
+| `@angular/common`                   | ^20.3.8 | Common Angular utilities               |
+| `@angular/compiler`                 | ^20.3.8 | Angular template compiler              |
+| `@angular/core`                     | ^20.3.8 | Angular core framework                 |
+| `@angular/forms`                    | ^20.3.8 | Form handling in Angular               |
+| `@angular/platform-browser`         | ^20.3.8 | Browser platform for Angular           |
+| `@angular/platform-browser-dynamic` | ^20.3.8 | Dynamic platform for Angular           |
+| `@angular/router`                   | ^20.3.8 | Angular routing library                |
+| `rxjs`                              | ~7.8.0  | Reactive extensions for JavaScript     |
+| `tslib`                             | ^2.3.0  | TypeScript runtime library             |
+| `zone.js`                           | ~0.15.0 | Execution context for async operations |
 
 ### Development Dependencies
 
-| Package | Version | Purpose |
-|---------|---------|---------|
-| `@angular-devkit/build-angular` | ^20.3.8 | Angular build tools |
-| `@angular/cli` | ^20.3.8 | Angular command-line interface |
-| `@angular/compiler-cli` | ^20.3.8 | Angular compiler CLI |
-| `@types/jasmine` | ~5.1.0 | TypeScript definitions for Jasmine |
-| `jasmine-core` | ~5.5.0 | Jasmine testing framework core |
-| `karma` | ~6.4.0 | Test runner |
-| `karma-chrome-launcher` | ~3.2.0 | Chrome launcher for Karma |
-| `karma-coverage` | ~2.2.0 | Code coverage for Karma |
-| `karma-jasmine` | ~5.1.0 | Jasmine adapter for Karma |
-| `karma-jasmine-html-reporter` | ~2.1.0 | HTML reporter for Jasmine tests |
-| `typescript` | ~5.7.2 | TypeScript compiler |
+| Package                         | Version | Purpose                            |
+| ------------------------------- | ------- | ---------------------------------- |
+| `@angular-devkit/build-angular` | ^20.3.8 | Angular build tools                |
+| `@angular/cli`                  | ^20.3.8 | Angular command-line interface     |
+| `@angular/compiler-cli`         | ^20.3.8 | Angular compiler CLI               |
+| `@types/jasmine`                | ~5.1.0  | TypeScript definitions for Jasmine |
+| `jasmine-core`                  | ~5.5.0  | Jasmine testing framework core     |
+| `karma`                         | ~6.4.0  | Test runner                        |
+| `karma-chrome-launcher`         | ~3.2.0  | Chrome launcher for Karma          |
+| `karma-coverage`                | ~2.2.0  | Code coverage for Karma            |
+| `karma-jasmine`                 | ~5.1.0  | Jasmine adapter for Karma          |
+| `karma-jasmine-html-reporter`   | ~2.1.0  | HTML reporter for Jasmine tests    |
+| `typescript`                    | ~5.7.2  | TypeScript compiler                |
 
 ---
 
@@ -83,22 +83,22 @@ This document lists all dependencies required for the Udacity Fullstack Store ap
 
 ### Development Environment
 
-| Tool | Minimum Version | Purpose |
-|------|----------------|---------|
-| **Node.js** | 20.19.0 | JavaScript runtime |
-| **npm** | 10.0.0 | Package manager |
-| **PostgreSQL** | 12.0 | Database server |
-| **Docker** | 20.0 | Container platform (for local DB) |
-| **Docker Compose** | 1.27 | Multi-container orchestration |
+| Tool               | Minimum Version | Purpose                           |
+| ------------------ | --------------- | --------------------------------- |
+| **Node.js**        | 20.19.0         | JavaScript runtime                |
+| **npm**            | 10.0.0          | Package manager                   |
+| **PostgreSQL**     | 12.0            | Database server                   |
+| **Docker**         | 20.0            | Container platform (for local DB) |
+| **Docker Compose** | 1.27            | Multi-container orchestration     |
 
 ### Production Environment (AWS)
 
-| Service | Configuration | Purpose |
-|---------|--------------|---------|
-| **Node.js Runtime** | 20.x | Elastic Beanstalk platform |
-| **PostgreSQL** | 12.x or higher | RDS database engine |
-| **AWS CLI** | Latest | AWS command-line interface |
-| **EB CLI** | Latest | Elastic Beanstalk CLI |
+| Service             | Configuration  | Purpose                    |
+| ------------------- | -------------- | -------------------------- |
+| **Node.js Runtime** | 20.x           | Elastic Beanstalk platform |
+| **PostgreSQL**      | 12.x or higher | RDS database engine        |
+| **AWS CLI**         | Latest         | AWS command-line interface |
+| **EB CLI**          | Latest         | Elastic Beanstalk CLI      |
 
 ---
 
@@ -106,20 +106,20 @@ This document lists all dependencies required for the Udacity Fullstack Store ap
 
 ### CircleCI Environment
 
-| Tool | Version | Purpose |
-|------|---------|---------|
-| **Node.js Docker Image** | cimg/node:20.19 | Build environment |
-| **Python** | 3.x | For EB CLI installation |
-| **pip3** | Latest | Python package manager |
-| **AWS CLI** | Latest (via orb) | AWS operations |
-| **EB CLI** | Latest (via pip) | Elastic Beanstalk deployments |
+| Tool                     | Version          | Purpose                       |
+| ------------------------ | ---------------- | ----------------------------- |
+| **Node.js Docker Image** | cimg/node:20.19  | Build environment             |
+| **Python**               | 3.x              | For EB CLI installation       |
+| **pip3**                 | Latest           | Python package manager        |
+| **AWS CLI**              | Latest (via orb) | AWS operations                |
+| **EB CLI**               | Latest (via pip) | Elastic Beanstalk deployments |
 
 ### CircleCI Orbs
 
-| Orb | Version | Purpose |
-|-----|---------|---------|
-| `circleci/node` | 4.1.0 | Node.js support |
-| `circleci/aws-cli` | 1.3.1 | AWS CLI setup |
+| Orb                | Version | Purpose         |
+| ------------------ | ------- | --------------- |
+| `circleci/node`    | 4.1.0   | Node.js support |
+| `circleci/aws-cli` | 1.3.1   | AWS CLI setup   |
 
 ---
 
@@ -132,10 +132,12 @@ None required for basic functionality. The application uses standard PostgreSQL 
 ### Database Migrations
 
 Managed by `db-migrate` package:
+
 - Migration files in `Backend/migrations/`
 - SQL files in `Backend/migrations/sqls/`
 
 **Migration Dependencies:**
+
 - Users table creation
 - Products table creation
 - Orders table creation

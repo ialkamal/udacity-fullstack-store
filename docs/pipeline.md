@@ -23,6 +23,7 @@ The CI/CD pipeline is triggered automatically on every push to the `master` bran
 **Executor:** Docker container with Node.js 20.19
 
 **Orbs Used:**
+
 - `circleci/node@4.1.0` - Node.js utilities
 - `circleci/aws-cli@1.3.1` - AWS CLI setup
 
@@ -39,6 +40,7 @@ The CI/CD pipeline is triggered automatically on every push to the `master` bran
 **Purpose:** Clone the repository from GitHub
 
 **Actions:**
+
 - Fetches the latest code from the repository
 - Checks out the branch that triggered the pipeline
 - Prepares the workspace for subsequent steps
@@ -59,11 +61,13 @@ The CI/CD pipeline is triggered automatically on every push to the `master` bran
 **Purpose:** Configure AWS credentials for deployment
 
 **Actions:**
+
 - Installs AWS CLI
 - Configures credentials from environment variables
 - Sets the default AWS region
 
 **Required Environment Variables:**
+
 - `AWS_ACCESS_KEY_ID` - AWS access key
 - `AWS_SECRET_ACCESS_KEY` - AWS secret key
 - `AWS_DEFAULT_REGION` - Target AWS region (e.g., us-east-1)
@@ -88,6 +92,7 @@ The CI/CD pipeline is triggered automatically on every push to the `master` bran
 **Purpose:** Install EB CLI for backend deployment
 
 **Actions:**
+
 - Updates package lists
 - Installs Python and pip dependencies
 - Installs AWS Elastic Beanstalk CLI
@@ -109,12 +114,14 @@ The CI/CD pipeline is triggered automatically on every push to the `master` bran
 **Purpose:** Install Angular application dependencies
 
 **Actions:**
+
 - Navigates to `Frontend/` directory
 - Runs `npm install`
 - Downloads all npm packages listed in `package.json`
 - Creates `node_modules/` folder
 
 **Dependencies Installed:**
+
 - Angular framework (~20.3.8)
 - TypeScript
 - RxJS
@@ -136,12 +143,14 @@ The CI/CD pipeline is triggered automatically on every push to the `master` bran
 **Purpose:** Install Express API dependencies
 
 **Actions:**
+
 - Navigates to `Backend/` directory
 - Runs `npm install`
 - Downloads all npm packages
 - May run postinstall scripts (database migrations)
 
 **Dependencies Installed:**
+
 - Express.js
 - PostgreSQL client
 - JWT and bcrypt
@@ -164,6 +173,7 @@ The CI/CD pipeline is triggered automatically on every push to the `master` bran
 **Purpose:** Compile Angular application for production
 
 **Actions:**
+
 - Navigates to `Frontend/` directory
 - Runs `ng build`
 - Compiles TypeScript to JavaScript
@@ -171,6 +181,7 @@ The CI/CD pipeline is triggered automatically on every push to the `master` bran
 - Generates production-ready static files in `dist/` folder
 
 **Build Optimizations:**
+
 - Tree shaking (removes unused code)
 - Minification
 - Bundle optimization
@@ -194,6 +205,7 @@ The CI/CD pipeline is triggered automatically on every push to the `master` bran
 **Purpose:** Compile TypeScript backend code
 
 **Actions:**
+
 - Navigates to `Backend/` directory
 - Runs `tsc` (TypeScript compiler)
 - Compiles `.ts` files to `.js` files
@@ -217,12 +229,14 @@ The CI/CD pipeline is triggered automatically on every push to the `master` bran
 **Purpose:** Deploy Angular app to AWS S3
 
 **Actions:**
+
 - Navigates to `Frontend/` directory
 - Runs deployment script
 - Uploads compiled files from `dist/` to S3 bucket
 - Configures bucket for static website hosting
 
 **AWS Resources:**
+
 - S3 bucket with static website hosting enabled
 - Public read access for web content
 
@@ -245,6 +259,7 @@ The CI/CD pipeline is triggered automatically on every push to the `master` bran
 **Purpose:** Deploy Express API to AWS Elastic Beanstalk
 
 **Actions:**
+
 - Navigates to `Backend/` directory
 - Initializes EB application
 - Selects EB environment
@@ -253,10 +268,12 @@ The CI/CD pipeline is triggered automatically on every push to the `master` bran
 - Deploys new application version
 
 **Required Environment Variables:**
+
 - `EB_APP_NAME` - Elastic Beanstalk application name
 - `EB_ENV_NAME` - Elastic Beanstalk environment name
 
 **AWS Resources:**
+
 - Elastic Beanstalk environment
 - EC2 instance(s)
 - Load balancer (if configured)
@@ -339,13 +356,13 @@ The CI/CD pipeline is triggered automatically on every push to the `master` bran
 
 Set these in CircleCI Project Settings → Environment Variables:
 
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `AWS_ACCESS_KEY_ID` | AWS IAM access key | `AKIAIOSFODNN7EXAMPLE` |
-| `AWS_SECRET_ACCESS_KEY` | AWS IAM secret key | `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY` |
-| `AWS_DEFAULT_REGION` | AWS region | `us-east-1` |
-| `EB_APP_NAME` | EB application name | `udacity-store-api` |
-| `EB_ENV_NAME` | EB environment name | `udacity-store-api-prod` |
+| Variable                | Description         | Example                                    |
+| ----------------------- | ------------------- | ------------------------------------------ |
+| `AWS_ACCESS_KEY_ID`     | AWS IAM access key  | `AKIAIOSFODNN7EXAMPLE`                     |
+| `AWS_SECRET_ACCESS_KEY` | AWS IAM secret key  | `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY` |
+| `AWS_DEFAULT_REGION`    | AWS region          | `us-east-1`                                |
+| `EB_APP_NAME`           | EB application name | `udacity-store-api`                        |
+| `EB_ENV_NAME`           | EB environment name | `udacity-store-api-prod`                   |
 
 ---
 
@@ -381,11 +398,13 @@ The pipeline is considered successful when:
 ### Common Failure Points
 
 1. **Dependency Installation:**
+
    - Network issues
    - Package conflicts
    - Version incompatibilities
 
 2. **Build Failures:**
+
    - TypeScript compilation errors
    - Missing environment variables
    - Syntax errors
@@ -408,10 +427,12 @@ The pipeline is considered successful when:
 ## Build Artifacts
 
 ### Frontend Artifacts
+
 - Compiled Angular application in `Frontend/dist/`
 - Uploaded to S3 bucket
 
 ### Backend Artifacts
+
 - Compiled TypeScript in `Backend/dist/`
 - Application bundle uploaded to Elastic Beanstalk
 
@@ -421,18 +442,18 @@ The pipeline is considered successful when:
 
 ### Average Pipeline Duration
 
-| Stage | Duration |
-|-------|----------|
-| Checkout | ~10s |
-| AWS Setup | ~15s |
-| EB CLI Install | ~40s |
-| Frontend Install | ~75s |
-| Backend Install | ~50s |
-| Frontend Build | ~90s |
-| Backend Build | ~20s |
-| Frontend Deploy | ~30s |
-| Backend Deploy | ~240s |
-| **Total** | **~8-10 minutes** |
+| Stage            | Duration          |
+| ---------------- | ----------------- |
+| Checkout         | ~10s              |
+| AWS Setup        | ~15s              |
+| EB CLI Install   | ~40s              |
+| Frontend Install | ~75s              |
+| Backend Install  | ~50s              |
+| Frontend Build   | ~90s              |
+| Backend Build    | ~20s              |
+| Frontend Deploy  | ~30s              |
+| Backend Deploy   | ~240s             |
+| **Total**        | **~8-10 minutes** |
 
 ---
 
@@ -441,6 +462,7 @@ The pipeline is considered successful when:
 ### Manual Rollback
 
 1. **Frontend (S3):**
+
    - S3 versioning allows reverting to previous version
    - Redeploy previous commit via CircleCI
 
@@ -452,6 +474,7 @@ The pipeline is considered successful when:
 ### Automated Rollback
 
 Not currently configured, but can be added:
+
 - Health checks after deployment
 - Automatic rollback on failed health checks
 
@@ -476,11 +499,13 @@ Not currently configured, but can be added:
 ## Security Considerations
 
 1. **Secrets Management:**
+
    - All credentials stored as CircleCI environment variables
    - Never committed to repository
    - Encrypted at rest and in transit
 
 2. **Access Control:**
+
    - IAM user with minimal required permissions
    - Separate credentials for CI/CD
    - Regular credential rotation
@@ -524,12 +549,15 @@ Executor: Docker (cimg/node:20.19)
 ### Common Issues
 
 1. **Node version mismatch:**
+
    - Ensure CircleCI uses Node.js 20.19+
 
 2. **AWS credentials invalid:**
+
    - Verify environment variables in CircleCI
 
 3. **EB environment not initialized:**
+
    - Ensure `EB_APP_NAME` and `EB_ENV_NAME` are set
 
 4. **Build timeout:**

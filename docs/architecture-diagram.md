@@ -81,6 +81,7 @@ This diagram shows the high-level overview of the infrastructure and AWS service
 ## Component Details
 
 ### 1. Frontend Layer (AWS S3)
+
 - **Purpose:** Hosts the Angular single-page application
 - **Access:** Public HTTP/HTTPS
 - **Content:** Static HTML, CSS, JavaScript files
@@ -90,6 +91,7 @@ This diagram shows the high-level overview of the infrastructure and AWS service
   - Low latency content delivery
 
 ### 2. Backend Layer (AWS Elastic Beanstalk)
+
 - **Purpose:** Hosts the Node.js/Express REST API
 - **Components:**
   - EC2 instance(s) running Node.js
@@ -101,6 +103,7 @@ This diagram shows the high-level overview of the infrastructure and AWS service
   - Environment variable management
 
 ### 3. Database Layer (AWS RDS)
+
 - **Purpose:** Persistent data storage
 - **Engine:** PostgreSQL
 - **Features:**
@@ -138,18 +141,21 @@ This diagram shows the high-level overview of the infrastructure and AWS service
 ## Network Communication
 
 ### User to Frontend (S3)
+
 - Protocol: HTTP/HTTPS
 - Port: 80/443
 - Direction: Inbound
 - Security: Public access allowed
 
 ### Frontend to Backend (S3 → EB)
+
 - Protocol: HTTP/HTTPS
 - Port: 3000 (or configured port)
 - Direction: Outbound from browser
 - Security: CORS enabled on backend
 
 ### Backend to Database (EB → RDS)
+
 - Protocol: PostgreSQL
 - Port: 5432
 - Direction: Outbound from EB, Inbound to RDS
@@ -159,12 +165,12 @@ This diagram shows the high-level overview of the infrastructure and AWS service
 
 ## AWS Services Summary
 
-| Service | Purpose | Region | Availability |
-|---------|---------|--------|--------------|
-| **S3** | Frontend hosting | us-east-1 | 99.99% |
-| **Elastic Beanstalk** | Backend hosting | us-east-1 | 99.99% |
-| **RDS** | Database | us-east-1 | 99.95% |
-| **EC2** | Compute (via EB) | us-east-1 | 99.99% |
+| Service               | Purpose          | Region    | Availability |
+| --------------------- | ---------------- | --------- | ------------ |
+| **S3**                | Frontend hosting | us-east-1 | 99.99%       |
+| **Elastic Beanstalk** | Backend hosting  | us-east-1 | 99.99%       |
+| **RDS**               | Database         | us-east-1 | 99.95%       |
+| **EC2**               | Compute (via EB) | us-east-1 | 99.99%       |
 
 ---
 
@@ -193,7 +199,7 @@ This diagram shows the high-level overview of the infrastructure and AWS service
                     └───────────────┘
 ```
 
-*Note: Multi-instance setup is optional for production environments*
+_Note: Multi-instance setup is optional for production environments_
 
 ---
 

@@ -138,28 +138,33 @@ This diagram shows the continuous integration and deployment pipeline using Circ
 ## Pipeline Flow Summary
 
 ### 1. Trigger
+
 ```
 Developer Push → GitHub → CircleCI Webhook
 ```
 
 ### 2. Environment Setup (30 seconds)
+
 ```
 Checkout Code → Configure AWS CLI → Install EB CLI
 ```
 
 ### 3. Install Dependencies (2-3 minutes)
+
 ```
 Frontend: npm install (Angular packages)
 Backend: npm install (Express packages)
 ```
 
 ### 4. Build (2-3 minutes)
+
 ```
 Frontend: ng build → dist/ folder (optimized)
 Backend: tsc → dist/ folder (compiled)
 ```
 
 ### 5. Deploy (3-5 minutes)
+
 ```
 Frontend: Upload to S3 → Configure bucket → LIVE
 Backend: EB deploy → EC2 update → Health check → LIVE
@@ -190,28 +195,33 @@ Time    Stage                Action
 ## Key Components
 
 ### GitHub
+
 - **Role:** Source code repository
 - **Trigger:** Webhook on push to master
 - **Output:** Code delivered to CircleCI
 
 ### CircleCI
+
 - **Role:** CI/CD orchestrator
 - **Executor:** Docker container (Node.js 20.19)
 - **Steps:** Install → Build → Test → Deploy
 - **Output:** Deployed application
 
 ### AWS S3
+
 - **Role:** Frontend static hosting
 - **Input:** Compiled Angular files
 - **Output:** Live website accessible to users
 
 ### AWS Elastic Beanstalk
+
 - **Role:** Backend application hosting
 - **Input:** Node.js application bundle
 - **Output:** Running API server
 - **Manages:** EC2, Load Balancer, Auto Scaling
 
 ### AWS RDS
+
 - **Role:** Database service
 - **Engine:** PostgreSQL
 - **Connection:** Only from Elastic Beanstalk
@@ -246,12 +256,14 @@ CircleCI Environment Variables
 ## Deployment Success Criteria
 
 ### Frontend Deployment Success
+
 - ✓ All files uploaded to S3
 - ✓ Bucket configured for static hosting
 - ✓ Website accessible via S3 URL
 - ✓ CORS headers configured
 
 ### Backend Deployment Success
+
 - ✓ Application bundle uploaded to EB
 - ✓ EC2 instance(s) updated
 - ✓ Health check returns OK

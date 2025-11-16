@@ -11,6 +11,7 @@ The application is deployed on Amazon Web Services (AWS) using a multi-tier arch
 ## AWS Services Used
 
 ### 1. Amazon S3 (Simple Storage Service)
+
 **Purpose:** Frontend Hosting
 
 - **Service Type:** Object Storage
@@ -25,6 +26,7 @@ The application is deployed on Amazon Web Services (AWS) using a multi-tier arch
   - Angular compiled bundles
 
 **Benefits:**
+
 - High availability and durability
 - Scalable storage
 - Cost-effective for static content
@@ -33,6 +35,7 @@ The application is deployed on Amazon Web Services (AWS) using a multi-tier arch
 ---
 
 ### 2. AWS Elastic Beanstalk
+
 **Purpose:** Backend API Hosting
 
 - **Service Type:** Platform as a Service (PaaS)
@@ -49,6 +52,7 @@ The application is deployed on Amazon Web Services (AWS) using a multi-tier arch
   - CloudWatch monitoring
 
 **Environment Variables:**
+
 ```
 POSTGRES_HOST
 POSTGRES_PORT
@@ -61,6 +65,7 @@ SALT
 ```
 
 **Benefits:**
+
 - Automatic capacity provisioning
 - Load balancing
 - Health monitoring
@@ -70,6 +75,7 @@ SALT
 ---
 
 ### 3. Amazon RDS for PostgreSQL
+
 **Purpose:** Database Hosting
 
 - **Service Type:** Managed Relational Database Service
@@ -83,18 +89,21 @@ SALT
   - Encryption at rest (optional)
 
 **Database Schema:**
+
 - Users table
 - Products table
 - Orders table
 - Products_Orders join table
 
 **Security:**
+
 - VPC security groups restrict access
 - Only Elastic Beanstalk instances can connect
 - SSL/TLS connections enforced
 - Master password stored securely
 
 **Benefits:**
+
 - Automated backups
 - Point-in-time recovery
 - Automatic software patching
@@ -106,6 +115,7 @@ SALT
 ## Network Architecture
 
 ### Virtual Private Cloud (VPC)
+
 - Custom VPC for the application (optional)
 - Public and private subnets
 - Security groups for access control
@@ -113,13 +123,16 @@ SALT
 ### Security Groups
 
 **Frontend (S3):**
+
 - Public HTTP/HTTPS access
 
 **Backend (Elastic Beanstalk):**
+
 - Inbound: HTTP/HTTPS from anywhere
 - Outbound: PostgreSQL port to RDS
 
 **Database (RDS):**
+
 - Inbound: PostgreSQL (5432) from Elastic Beanstalk only
 - Outbound: None required
 
@@ -130,6 +143,7 @@ SALT
 **Primary Region:** `us-east-1` (or as configured)
 
 **Availability Zones:**
+
 - Multi-AZ deployment for RDS (production)
 - Single AZ for development/testing
 
@@ -138,11 +152,13 @@ SALT
 ## Scalability
 
 ### Horizontal Scaling
+
 - **Frontend:** S3 automatically scales
 - **Backend:** Elastic Beanstalk can use Auto Scaling groups
 - **Database:** RDS read replicas for read-heavy workloads
 
 ### Vertical Scaling
+
 - Elastic Beanstalk instance types can be upgraded
 - RDS instance class can be modified
 
@@ -151,11 +167,13 @@ SALT
 ## Monitoring and Logging
 
 ### CloudWatch
+
 - Application logs from Elastic Beanstalk
 - RDS performance metrics
 - S3 access logs (if enabled)
 
 ### Elastic Beanstalk Health Dashboard
+
 - Environment health status
 - Enhanced health reporting
 - Request metrics
@@ -165,11 +183,13 @@ SALT
 ## Cost Optimization
 
 ### Development Environment
+
 - Single instance Elastic Beanstalk
 - Smallest RDS instance (db.t3.micro)
 - Standard S3 storage
 
 ### Production Environment
+
 - Load-balanced Elastic Beanstalk with auto-scaling
 - Appropriately sized RDS instance
 - Multi-AZ for high availability
@@ -180,11 +200,13 @@ SALT
 ## Backup and Disaster Recovery
 
 ### Database Backups
+
 - Automated daily backups (RDS)
 - Retention period: 7-35 days
 - Point-in-time recovery enabled
 
 ### Application Backups
+
 - Source code in GitHub
 - Application versions stored in S3 by Elastic Beanstalk
 - Frontend assets in S3 with versioning enabled
@@ -194,15 +216,18 @@ SALT
 ## Security Best Practices
 
 1. **Encryption:**
+
    - SSL/TLS for data in transit
    - Encryption at rest for RDS (optional)
 
 2. **Access Control:**
+
    - IAM roles for service access
    - Security groups for network isolation
    - No hardcoded credentials
 
 3. **Secrets Management:**
+
    - Environment variables in Elastic Beanstalk
    - AWS Secrets Manager (recommended for production)
 
@@ -215,6 +240,7 @@ SALT
 ## Infrastructure as Code
 
 The infrastructure can be provisioned using:
+
 - AWS Console (manual setup)
 - AWS CLI commands
 - Elastic Beanstalk CLI (`eb` commands)
