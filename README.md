@@ -2,6 +2,12 @@
 
 A full-stack e-commerce application built with Angular frontend and Node.js/Express backend, deployed on AWS using CircleCI for continuous integration and deployment.
 
+## Frontend URL
+http://udacity-store-project-987654321.s3-website-us-east-1.amazonaws.com
+
+## Backend URL
+http://backend-dev.us-east-1.elasticbeanstalk.com
+
 ## Project Overview
 
 This is a complete online store application featuring:
