@@ -5,7 +5,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: "cimg/node:20.19"
+      - image: "cimg/node:20.19-browsers"
     steps:
       - checkout
       - aws-cli/setup:
@@ -40,7 +40,7 @@ jobs:
       - run:
           name: Front-End Tests
           command: |
-            npm run frontend:test
+            npm run frontend:test:ci
       - run:
           name: Deploy Back-End App
           command: |

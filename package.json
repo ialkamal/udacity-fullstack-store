@@ -8,6 +8,7 @@
     "frontend:build": "cd ./Frontend && npm run build",
     "frontend:deploy": "cd ./Frontend && npm run deploy",
     "frontend:test": "cd ./Frontend && npm test",
+    "frontend:test:ci": "cd ./Frontend && npm run test:ci",
     "backend:install": "cd ./Backend && npm install",
     "backend:build": "cd ./Backend && npm run build",
     "backend:deploy": "cd ./Backend && npm run deploy",
