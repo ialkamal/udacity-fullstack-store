@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "frontend:install": "cd ./Frontend && npm install",
     "frontend:build": "cd ./Frontend && npm run build",
     "frontend:deploy": "cd ./Frontend && npm run deploy",
+    "backend:install": "cd ./Backend && npm install",
     "backend:build": "cd ./Backend && npm run build",
     "backend:deploy": "cd ./Backend && npm run deploy"
   },
