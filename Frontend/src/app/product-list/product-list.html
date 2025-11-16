@@ -1,0 +1,5 @@
+<div style="display: flex; flex-direction: row; flex-wrap: wrap">
+  @for(product of products; track $index){
+  <app-product [product]="product"></app-product>
+  }
+</div>

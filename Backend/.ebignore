@@ -1,0 +1,6 @@
+.git
+node_modules
+spec
+docker-compose.yml
+StoreBackend.postman_collection.json
+!dist
