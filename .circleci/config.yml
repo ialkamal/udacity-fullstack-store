@@ -38,9 +38,16 @@ jobs:
           command: |
             npm run backend:build
       - run:
+          name: Install Chrome
+          command: |
+            wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+            sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+            sudo apt-get update
+            sudo apt-get install -y google-chrome-stable
+      - run:
           name: Front-End Tests
           command: |
-            export CHROME_BIN=$(which google-chrome-stable || which chromium-browser || which chromium)
+            export CHROME_BIN=/usr/bin/google-chrome-stable
             npm run frontend:test:ci
       - run:
           name: Deploy Back-End App
