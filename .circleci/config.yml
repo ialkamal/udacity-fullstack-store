@@ -17,8 +17,7 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt-get install -y python3-pip python3-dev build-essential
-            pip3 install --upgrade pip
-            pip3 install awsebcli --upgrade --user
+            pip3 install awsebcli --upgrade --user --break-system-packages
             echo 'export PATH=$HOME/.local/bin:$PATH' >> $BASH_ENV
             source $BASH_ENV
       - run:
