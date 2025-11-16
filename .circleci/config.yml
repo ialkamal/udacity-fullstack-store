@@ -14,6 +14,10 @@ jobs:
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           aws-region: AWS_DEFAULT_REGION
       - run:
+          name: Install Elastic Beanstalk CLI
+          command: |
+            sudo pip3 install awsebcli
+      - run:
           name: Front-End Install
           command: |
             npm run frontend:install
@@ -30,6 +34,11 @@ jobs:
           command: |
             npm run backend:build
       - run:
-          name: Deploy App
+          name: Deploy Frontend App
           command: |
             npm run frontend:deploy
+      - run:
+          name: Deploy Backend App
+          command: |
+            npm run backend:deploy
+

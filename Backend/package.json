@@ -5,7 +5,7 @@
   "main": "server.ts",
   "scripts": {
     "build": "tsc",
-    "deploy": "eb init",
+    "deploy": "eb deploy",
     "server": "ts-node ./src/server.ts",
     "postinstall": "npm run db:migrate || true && npm run db:seed || true",
     "start": "node dist/server.js",
