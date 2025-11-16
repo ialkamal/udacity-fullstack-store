@@ -5,6 +5,7 @@ A full-stack e-commerce application built with Angular frontend and Node.js/Expr
 ## Project Overview
 
 This is a complete online store application featuring:
+
 - **Frontend**: Angular application for the storefront UI
 - **Backend**: RESTful API built with Node.js, Express, and PostgreSQL
 - **Authentication**: JWT-based user authentication
@@ -28,11 +29,13 @@ This is a complete online store application featuring:
 ## Tech Stack
 
 ### Frontend
+
 - Angular 20.3.8
 - TypeScript
 - CSS3
 
 ### Backend
+
 - Node.js 20.19
 - Express.js
 - TypeScript
@@ -41,6 +44,7 @@ This is a complete online store application featuring:
 - bcrypt for password hashing
 
 ### DevOps
+
 - CircleCI for CI/CD
 - AWS Elastic Beanstalk (Backend)
 - AWS S3 (Frontend)
@@ -112,12 +116,14 @@ npm run db:seed
 ### 6. Start Development Servers
 
 **Backend (runs on port 3000):**
+
 ```bash
 cd Backend
 npm run server
 ```
 
 **Frontend (runs on port 4200):**
+
 ```bash
 cd Frontend
 ng serve
@@ -131,8 +137,8 @@ Visit `http://localhost:4200` to view the application.
 
 ### Root Level Scripts
 
-| Script                  | Description                    |
-| ----------------------- | ------------------------------ |
+| Script                     | Description                   |
+| -------------------------- | ----------------------------- |
 | `npm run frontend:install` | Install frontend dependencies |
 | `npm run frontend:build`   | Build frontend for production |
 | `npm run frontend:deploy`  | Deploy frontend to AWS S3     |
@@ -142,22 +148,22 @@ Visit `http://localhost:4200` to view the application.
 
 ### Backend Scripts
 
-| Script                    | Description                     |
-| ------------------------- | ------------------------------- |
-| `npm run server`          | Start development server        |
-| `npm start`               | Start production server         |
-| `npm test`                | Run test suite                  |
-| `npm run build`           | Compile TypeScript              |
-| `npm run db:migrate`      | Run database migrations         |
-| `npm run db:seed`         | Seed database with sample data  |
+| Script               | Description                    |
+| -------------------- | ------------------------------ |
+| `npm run server`     | Start development server       |
+| `npm start`          | Start production server        |
+| `npm test`           | Run test suite                 |
+| `npm run build`      | Compile TypeScript             |
+| `npm run db:migrate` | Run database migrations        |
+| `npm run db:seed`    | Seed database with sample data |
 
 ### Frontend Scripts
 
-| Script        | Description                     |
-| ------------- | ------------------------------- |
-| `ng serve`    | Start development server        |
-| `ng build`    | Build for production            |
-| `ng test`     | Run unit tests                  |
+| Script     | Description              |
+| ---------- | ------------------------ |
+| `ng serve` | Start development server |
+| `ng build` | Build for production     |
+| `ng test`  | Run unit tests           |
 
 ---
 
@@ -200,6 +206,7 @@ npm test
 ```
 
 Tests include:
+
 - User authentication
 - Product management
 - Order processing
@@ -229,11 +236,13 @@ Pushes to the `master` branch automatically trigger the CI/CD pipeline:
 ### Manual Deployment
 
 **Backend:**
+
 ```bash
 npm run backend:deploy
 ```
 
 **Frontend:**
+
 ```bash
 npm run frontend:deploy
 ```
@@ -244,30 +253,33 @@ npm run frontend:deploy
 
 Configure these in your CircleCI project settings:
 
-| Variable                  | Description                       |
-| ------------------------- | --------------------------------- |
-| `AWS_ACCESS_KEY_ID`       | AWS access key                    |
-| `AWS_SECRET_ACCESS_KEY`   | AWS secret key                    |
-| `AWS_DEFAULT_REGION`      | AWS region (e.g., us-east-1)      |
-| `EB_APP_NAME`             | Elastic Beanstalk app name        |
-| `EB_ENV_NAME`             | Elastic Beanstalk environment     |
+| Variable                | Description                   |
+| ----------------------- | ----------------------------- |
+| `AWS_ACCESS_KEY_ID`     | AWS access key                |
+| `AWS_SECRET_ACCESS_KEY` | AWS secret key                |
+| `AWS_DEFAULT_REGION`    | AWS region (e.g., us-east-1)  |
+| `EB_APP_NAME`           | Elastic Beanstalk app name    |
+| `EB_ENV_NAME`           | Elastic Beanstalk environment |
 
 ---
 
 ## API Endpoints
 
 ### Users
+
 - `POST /api/users` - Create user
 - `POST /api/users/authenticate` - Login
 - `GET /api/users` - Get all users (requires auth)
 - `GET /api/users/:id` - Get user by ID (requires auth)
 
 ### Products
+
 - `GET /api/products` - Get all products
 - `GET /api/products/:id` - Get product by ID
 - `POST /api/products` - Create product (requires auth)
 
 ### Orders
+
 - `GET /api/orders` - Get all orders (requires auth)
 - `GET /api/orders/:id` - Get order by ID (requires auth)
 - `POST /api/orders` - Create order (requires auth)
@@ -279,26 +291,42 @@ For detailed API documentation, see [Backend/REQUIREMENTS.md](Backend/REQUIREMEN
 ## Database Schema
 
 ### Users
+
 - id (serial primary key)
 - username (varchar)
 - password (varchar, hashed)
 
 ### Products
+
 - id (serial primary key)
 - name (varchar)
 - price (decimal)
 - category (varchar)
 
 ### Orders
+
 - id (serial primary key)
 - user_id (foreign key)
 - status (varchar)
 
 ### Products_Orders (Join Table)
+
 - id (serial primary key)
 - order_id (foreign key)
 - product_id (foreign key)
 - quantity (integer)
+
+---
+
+## Documentation
+
+Comprehensive documentation is available in the `docs/` folder:
+
+- **[Infrastructure Description](docs/infrastructure.md)** - Detailed AWS infrastructure setup and architecture
+- **[Application Dependencies](docs/dependencies.md)** - Complete list of frontend and backend dependencies
+- **[Pipeline Process](docs/pipeline.md)** - CI/CD pipeline workflow and configuration
+- **[Architecture Diagram](docs/architecture-diagram.md)** - High-level infrastructure diagram
+- **[Pipeline Diagram](docs/pipeline-diagram.md)** - Deployment flow visualization
 
 ---
 
