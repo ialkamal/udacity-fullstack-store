@@ -40,7 +40,7 @@ jobs:
       - run:
           name: Front-End Tests
           command: |
-            export CHROME_BIN=/usr/bin/google-chrome
+            export CHROME_BIN=$(which google-chrome-stable || which chromium-browser || which chromium)
             npm run frontend:test:ci
       - run:
           name: Deploy Back-End App
