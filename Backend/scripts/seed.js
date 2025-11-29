@@ -15,12 +15,12 @@ const pool = new Pool({
 
 async function seedDatabase() {
   try {
-    // Try different possible paths for the seed file
+    // Try different possible paths for the seed file (use simple version for RDS compatibility)
     const possiblePaths = [
-      path.join(__dirname, '..', 'migrations', 'sqls', 'seed_store.sql'),
-      path.join(process.cwd(), 'migrations', 'sqls', 'seed_store.sql'),
-      '/var/app/current/migrations/sqls/seed_store.sql',
-      '/var/app/staging/migrations/sqls/seed_store.sql'
+      path.join(__dirname, '..', 'migrations', 'sqls', 'seed_store_simple.sql'),
+      path.join(process.cwd(), 'migrations', 'sqls', 'seed_store_simple.sql'),
+      '/var/app/current/migrations/sqls/seed_store_simple.sql',
+      '/var/app/staging/migrations/sqls/seed_store_simple.sql'
     ];
     
     let seedFile;
