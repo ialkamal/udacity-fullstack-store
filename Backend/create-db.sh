@@ -1,6 +1,6 @@
 #!/bin/bash
 export PGPASSWORD=$POSTGRES_PASSWORD
 psql -h $POSTGRES_HOST -U $POSTGRES_USER -d postgres << EOF
-CREATE DATABASE "udacity-store";
+CREATE DATABASE "store";
 \q
 EOF

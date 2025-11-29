@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ProductType } from './models/product';
 
-const baseURL = 'http://backend-dev.us-east-1.elasticbeanstalk.com/products';
+const baseURL = 'http://backend-dev22.us-east-1.elasticbeanstalk.com/products';
+//const baseURL = 'http://localhost:3000/products';
 
 @Injectable({
   providedIn: 'root',

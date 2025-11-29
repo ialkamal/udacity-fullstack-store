@@ -1,1 +1,1 @@
-aws s3 cp --recursive --acl public-read ./dist/Frontend/browser s3://udacity-store-project-987654321/
+aws s3 cp --recursive --acl public-read ./dist/Frontend/browser s3://udacity-ismail-demo-store/
